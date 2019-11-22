@@ -1,0 +1,26 @@
+nav {
+  display: flex;
+}
+
+ul {
+  list-style-type: none;
+  font-family: 'Scala', sans-serif;
+  font-size: 14px;
+  display: flex;
+}
+
+li a{
+  color: #353942;
+  text-decoration: none;
+  text-align: center;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+img{
+width: 15%;
+max-width: 100%;
+
+}

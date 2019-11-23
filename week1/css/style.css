@@ -1,26 +1,35 @@
-nav {
+header {
   display: flex;
+  align-items: center;
+  width: auto;
+  height: 50px;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  border: 0.5px solid lightgrey;
+  margin: -8.5px -8.5px;
+  padding: 6px 9px;
 }
 
-ul {
-  list-style-type: none;
-  font-family: 'Scala', sans-serif;
-  font-size: 14px;
-  display: flex;
+.menu {
+  width: 25px;
 }
 
-li a{
-  color: #353942;
-  text-decoration: none;
-  text-align: center;
+.logo {
+  width: 87px;
+  vertical-align: middle;
+  height: auto;
+  margin-left: 43px;
+  justify-content: center;
 }
 
-li a:hover {
-  text-decoration: underline;
+.account {
+  width: 21px;
+  margin-right: 20px;
+  vertical-align: middle;
 }
 
-img{
-width: 15%;
-max-width: 100%;
-
+.shoppingbag {
+  width: 18px;
+  margin-right: 5px;
+  vertical-align: middle;
 }

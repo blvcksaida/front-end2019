@@ -1,0 +1,335 @@
+*, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(0,0,0,0.6);
+}
+
+/*navigatie klein scherm*/
+header section {
+  display: flex;
+  padding: .75rem;
+}
+
+header section div:first-child {
+  align-self: start;
+  margin-top: 15px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.45s cubic-bezier(0.29, 0.63, 0.44, 1);
+  background-color: #ffffff;
+  /*transform: translateX(-100%);*/
+
+}
+
+header:first-child {
+  width: 90%;
+}
+
+#site {
+  display: block;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*hamburger menu*/
+.menu {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/***** Start of hamburger styles *****/
+/*
+  Here we style our hamburger wrapper, we use position relative because we want to position
+  the span elements, which live inside of our wrapper, absolute. This allows us to place the
+  ::before at the top of the div and the ::after at the bottom of the div.
+*/
+/* These become our three lines, before becomes the first, 'span' the second and after the third */
+span {
+  height: .2rem;
+  width: 100%;
+  display: block;
+  background: black;
+  border-radius: .5rem;
+  min-width: 1.5rem;
+}
+
+/* Define general styles for the ::before and ::after */
+span::before, span::after {
+  content: '';
+  height: .2rem;
+  width: 100%;
+  position: absolute;
+  background: black;
+  border-radius: .5rem;
+  transition: .5s;
+}
+
+/* Position ::before at the top of the div */
+span::before {
+  top: 2.5px;
+}
+
+/* Position ::after at the bottom of the div */
+span::after {
+  bottom: 2px
+}
+
+/*
+  Define styles which will be applied when the class 'active' is added to the div wrapper.
+  We can actually pass multiple classes to HTML elements, this way we can style the element which hash
+  both classes of 'hamburger' and 'active'
+*/
+.menu.active span {
+  background: rgba(0, 0, 0, 0);
+  transition: .5s;
+}
+
+/* We can then also pass specific styles which are only applicable when .hamburger.active exists */
+.menu.active span::before {
+  transform: rotate(135deg);
+  top: 12px;
+}
+
+.menu.active span::after {
+  top: 12px;
+  transform: rotate(225deg);
+}
+
+/***** end of hamburger styles *****/
+/*
+    Here we define our base nav styles, notice we pass a translateX of minus 100% allowing us to position
+    the nav element out of our viewport. We do so instead of using for example; display: none; because this way
+    the content remains accessible for screen readers.
+  */
+nav {
+  transition: .3s ease-in-out;
+  padding-left: 1rem;
+  width: 95%;
+  background-color: #ffffff;
+  display: block;
+
+}
+
+/* When nav gets a second class, namely; 'active', we translate the nav element back into our viewport! */
+
+#closednav:active {
+  transform: translateX(0);
+}
+
+#site-search {
+  padding: 0.75rem;
+  position: relative;
+  z-index: 1;
+
+}
+
+#sitenav {
+  position:absolute;
+  width: 100%;
+  height: calc(100% - 214px);
+  overflow-y: scroll;
+  z-index: 0
+}
+
+input {
+  width: 28rem;
+  background-color: rgba(188, 188, 188, 0.23);
+  border-radius: 25px;
+  padding: 0.375rem 0.75rem;
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.033em;
+  border: 0.0625rem solid transparent;
+  transition: border 0.2s ease-in-out;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+form img {
+  width: 14px;
+  vertical-align: middle;
+  z-index: 999;
+  margin-left: -50px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 12px 0px;
+  border-bottom: 0.0625rem solid #bcbcbc;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: black;
+}
+
+li img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo {
+  width: 85px;
+  margin-left: 43px;
+  display: flex;
+}
+
+/*
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+li {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+*/
+.pin {
+  width: 18px;
+  vertical-align: middle;
+}
+
+.account {
+  width: 20px;
+  vertical-align: middle;
+}
+
+.shoppingbag {
+  width: 18px;
+  vertical-align: middle;
+}
+
+.search {
+  width: 18px;
+  vertical-align: middle;
+}
+
+.flag {
+  width: 32px;
+  vertical-align: middle;
+}
+
+/*navigatie groot scherm*/
+@media (min-width: 1024px) {
+  header {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+  }
+
+  .site {
+    flex: auto;
+    align-items: center;
+  }
+
+  .logo {
+    margin-right: 1.5rem;
+    justify-content: flex-start;
+  }
+
+  .hide {
+    align-items: center;
+    display: flex;
+    margin: 0 0 0 1.5rem;
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.033em;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    align-items: center;
+  }
+
+  .menu {
+    display: none;
+  }
+}
+
+/*body*/
+body {
+  font-family: Roboto, sans-serif;
+}
+
+section {
+  display: block;
+  position: relative;
+  align-items: center;
+}
+
+.homecontent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.5rem 0.75rem 1.5rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 1em;
+  font-weight: bold;
+  color: #000;
+}
+
+.homecontent p {
+  font-size: 0.875rem;
+  letter-spacing: 0.015rem;
+  margin: 1.5rem 0 0 0;
+  color: #000;
+}
+
+.button {
+  text-decoration: none;
+  background-color: #000;
+  color: white;
+  font-weight: 900;
+  padding: 0.75rem;
+  font-size: 0.8125rem;
+  border: 0.0625rem solid #000;
+  border-radius: 1.5625rem;
+  width: 100%;
+  display: inline-block;
+  max-width: 10.375rem;
+  white-space: nowrap;
+  margin-left: 0.75rem;
+}
+
+.buttoncontainer {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.home1 {
+  background-image: url("images/home1.png");
+}
